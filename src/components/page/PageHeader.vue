@@ -11,33 +11,15 @@
       </div>
 
        <nav class="page-header__nav">
-        <button
-          type="button"
+         <RouterLink
+          v-for="link in links"
+          :key="link.path"
           class="page-header__nav-item"
-          :class="{ 'page-header__nav-item--active': activeTab === 'home' }"
-          v-on:click="setTab('home')"
+          :to="link.path"
         >
-          Главная
-        </button>
-
-        <button
-          type="button"
-          class="page-header__nav-item"
-          :class="{ 'page-header__nav-item--active': activeTab === 'rules' }"
-         @click="setTab('rules')"
-        >
-          Правила
-        </button>
-
-        <button
-          type="button"
-          class="page-header__nav-item"
-          :class="{ 'page-header__nav-item--active': activeTab === 'contacts' }"
-          @click="setTab('contacts')"
-        >
-          Контакты
-        </button>
-       </nav>
+          {{ link.title }}
+        </RouterLink>
+      </nav>
     </div>
   </header>
 </template>
@@ -49,19 +31,27 @@ import SvgLogo from "@/components/svg/SvgLogo.vue";
     components: {
       SvgLogo,
     },
-    props: {
-      activeTab: {
-        type: String,
-        default: "",
-      },
-    },
-    methods: {
-      setTab(value) {
-        this.$emit("setTab", value);
-      },
+    data() {
+      return {
+        links: [
+          {
+            title: "Главная",
+            path: "/",
+          },
+          {
+            title: "Правила",
+            path: "/rules",
+          },
+          {
+            title: "Контакты",
+            path: "/contacts",
+          },
+        ],
+      };
     },
   };
-  </script>
+</script>
+ 
 
 <style lang="less">
   .page-header {
@@ -139,6 +129,7 @@ import SvgLogo from "@/components/svg/SvgLogo.vue";
       &.router-link-exact-active {
         color: @light_orange;
       }
+      
     }
   }
 </style>
