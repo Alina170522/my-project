@@ -2,7 +2,8 @@
   <!-- ListArticles.vue -->
  
      <main class="list-articles">
-    <div class="list-articles__container">
+    <div class="list-articles__container"> 
+      <SearchForm class="list-articles__search-form" @search="onSearch" />
       <div class="list-articles__list">
         <CardArticle
           v-for="item in newsList"
@@ -20,7 +21,7 @@
         @setPage="setPage"
       />
     </div>
-     <SearchForm class="list-articles__search-form" @search="onSearch" />
+    
    
   </main>
 </template>
