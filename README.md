@@ -1,38 +1,34 @@
-# my-project
+# Блог — список статей с поиском и пагинацией
 
-This template should help get you started developing with Vue 3 in Vite.
+Одностраничное приложение на Vue 3: лента статей, поиск, постраничная навигация и страница отдельной статьи. Данные приходят с открытого API [dummyjson.com](https://dummyjson.com/posts).
 
-## Recommended IDE Setup
+![Скриншот](docs/screenshot.png)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Что реализовано
+- Список статей с карточками (10 на страницу)
+- Поиск по статьям через запрос к API
+- Пагинация
+- Маршрутизация (Vue Router): главная, страница статьи `/blog/:id`, контакты, правила
+- Ленивая загрузка страниц, общие стили на Less с переменными и миксинами
 
-## Recommended Browser Setup
+## Стек
+Vue 3 · Vue Router · Pinia · Axios · Vite · Less
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+## Запуск
+```bash
 npm install
+npm run dev      # http://localhost:3000
+npm run build    # сборка в dist/
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
+## Структура
+```
+src/
+├── components/   ListArticles, SearchForm, ThePagniator, CardArticle
+├── pages/        index, blog/[id], contacts, rules
+├── router/       маршруты
+└── styles/       переменные, миксины, анимации
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+## Автор
+Алина Штауб — [портфолио в Figma](https://www.figma.com/)
