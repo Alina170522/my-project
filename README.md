@@ -2,6 +2,8 @@
 
 Одностраничное приложение на Vue 3: лента статей, поиск, постраничная навигация и страница отдельной статьи. Данные приходят с открытого API [dummyjson.com](https://dummyjson.com/posts).
 
+**Демо:** https://alina170522.github.io/my-project/
+
 ![Скриншот](docs/screenshot.png)
 
 ## Что реализовано
@@ -32,3 +34,11 @@ src/
 
 ## Автор
 Алина Штауб — [портфолио в Figma](https://www.figma.com/)
+
+## Публикация на GitHub Pages
+Сайт публикуется из ветки `gh-pages`. Чтобы обновить:
+```bash
+npx vite build --base=/my-project/   # результат: dist/
+# и скопировать dist/index.html в dist/404.html (для прямых ссылок на страницы)
+```
+Затем содержимое собранной папки отправляется в ветку `gh-pages` (Settings → Pages → Deploy from a branch → `gh-pages` / root).
